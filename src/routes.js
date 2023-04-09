@@ -15,6 +15,8 @@ import {
   MdLock,
 } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { BsPinMap } from "react-icons/bs";
+import { GoCloudUpload } from "react-icons/go";
 
 const routes = [
   {
@@ -28,14 +30,14 @@ const routes = [
     name: "Visual Pollution Map",
     layout: "/admin",
     path: "visual_pollution_map",
-    icon: <MdHome className="h-6 w-6" />,
+    icon: <BsPinMap className="h-6 w-6" />,
     component: <VisualPollutionMap />,
   },
   {
     name: "Upload Image",
     layout: "/admin",
     path: "upload_image",
-    icon: <MdHome className="h-6 w-6" />,
+    icon: <GoCloudUpload className="h-6 w-6" />,
     component: <UploadImage />,
   },
   {
