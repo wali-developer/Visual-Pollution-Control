@@ -85,7 +85,6 @@ console.log(rotationValues)
                 }}
                 onRender={e => {
                   if (pannelumRef.current) {
-                  
                     setRotaionValues({
                       pitch:pannelumRef.current?.getViewer()?.getPitch()+'deg',
                       yaw:pannelumRef.current?.getViewer()?.getYaw()+'0deg'
