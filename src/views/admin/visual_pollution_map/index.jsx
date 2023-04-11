@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import mapData from "../../../components/visual_pollution_map/mapData";
 
-import { Pannellum, PannellumVideo } from "pannellum-react";
+import { Pannellum } from "pannellum-react";
 
 const VisualPollutionMap = () => {
   const [active, setActive] = useState(null);
+
   return (
     <div className="mt-7">
       {/* Card widget */}
@@ -33,26 +34,13 @@ const VisualPollutionMap = () => {
                     setActive(item);
                   },
                 }}
-              >
-                {/* <Popup
-                  onClose={() => {
-                    setActive(null);
-                  }}
-                >
-                  <p>{active?.properties?.name}</p>
-                </Popup> */}
-              </Marker>
+              ></Marker>
             ))}
           </MapContainer>
         </div>
         <div className="rounded-[20px] bg-white p-4 shadow-3xl shadow-shadow-500">
           {active ? (
             <div className="h-[370px] w-full">
-              {/* <img
-                src={active?.img}
-                alt={active?.NAME}
-                className="h-full w-full rounded-[20px] object-cover"
-              /> */}
               <Pannellum
                 width="100%"
                 height="370px"
@@ -70,7 +58,7 @@ const VisualPollutionMap = () => {
                   pitch={11}
                   yaw={-167}
                   text="Info Hotspot Text 3"
-                  URL="https://github.com/farminf/pannellum-react"
+                  URL="#"
                 />
 
                 <Pannellum.Hotspot
@@ -78,7 +66,7 @@ const VisualPollutionMap = () => {
                   pitch={31}
                   yaw={-107}
                   text="Info Hotspot Text 4"
-                  URL="https://github.com/farminf/pannellum-react"
+                  URL="#"
                 />
               </Pannellum>
             </div>
