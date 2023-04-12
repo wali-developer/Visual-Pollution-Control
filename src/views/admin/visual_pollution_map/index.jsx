@@ -3,18 +3,18 @@ import { MapContainer, TileLayer, Popup } from "react-leaflet";
 import { MarkerLayer, Marker } from "react-leaflet-marker";
 import mapData from "../../../components/visual_pollution_map/mapData";
 
+import { FaMapMarkerAlt } from "react-icons/fa";
+
 import { Pannellum } from "pannellum-react";
 
 const VisualPollutionMap = () => {
   const [active, setActive] = useState(null);
-  const pannelumRef = useRef()
+  const pannelumRef = useRef();
 
-  const [rotationValues,setRotaionValues] = useState({
-    pitch:'0deg',
-    yaw:'0deg'
-  })
-
-console.log(rotationValues)
+  const [rotationValues, setRotaionValues] = useState({
+    pitch: "0deg",
+    yaw: "0deg",
+  });
 
   return (
     <div className="mt-7">
@@ -26,7 +26,6 @@ console.log(rotationValues)
               mapData[0].geometry?.coordinates[0],
               mapData[0].geometry?.coordinates[1],
             ]}
-
             zoom={13}
             scrollWheelZoom={false}
             className="z-10 h-[370px] w-full rounded-[20px]"
@@ -34,37 +33,40 @@ console.log(rotationValues)
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             {mapData.map((item) => (
               <MarkerLayer>
-
                 <Marker
                   position={[
                     item?.geometry?.coordinates[0],
                     item?.geometry?.coordinates[1],
                   ]}
                   key={item.properties.place_ID}
-                // eventHandlers={{
-                //   click: (e) => {
-                //     setActive(item);
-                //   },
-                // }}
+                  // eventHandlers={{
+                  //   click: (e) => {
+                  //     setActive(item);
+                  //   },
+                  // }}
                 >
                   <div
-                    className={`bg-green-600  h-[50px] w-[20px] rounded-tl-lg rounded-tr-lg transform transition-all duration-100`}
+                    className={`transform rounded-tl-lg rounded-tr-lg transition-all duration-100`}
                     style={{
-                      rotate: active?.properties.place_ID==item.properties.place_ID? rotationValues.yaw:'0deg',
+                      rotate:
+                        active?.properties.place_ID == item.properties.place_ID
+                          ? rotationValues.yaw
+                          : "0deg",
                       // transform: active?.properties.place_ID==item.properties.place_ID? rotationValues.pitch:'0deg'
                     }}
-                    onClick={() =>{
-                       setRotaionValues({
-                        pitch:'0deg',
-                        yaw:'0deg'
-                       })
-                       setActive(item)
-                      }}
-                  ></div>
+                    onClick={() => {
+                      setRotaionValues({
+                        pitch: "0deg",
+                        yaw: "0deg",
+                      });
+                      setActive(item);
+                    }}
+                  >
+                    <FaMapMarkerAlt className="h-8 w-8 text-navy-500" />
+                  </div>
                 </Marker>
               </MarkerLayer>
             ))}
-
           </MapContainer>
         </div>
         <div className="rounded-[20px] bg-white p-4 shadow-3xl shadow-shadow-500">
@@ -83,12 +85,13 @@ console.log(rotationValues)
                 onLoad={() => {
                   console.log("panorama loaded");
                 }}
-                onRender={e => {
+                onRender={(e) => {
                   if (pannelumRef.current) {
                     setRotaionValues({
-                      pitch:pannelumRef.current?.getViewer()?.getPitch()+'deg',
-                      yaw:pannelumRef.current?.getViewer()?.getYaw()+'0deg'
-                    })
+                      pitch:
+                        pannelumRef.current?.getViewer()?.getPitch() + "deg",
+                      yaw: pannelumRef.current?.getViewer()?.getYaw() + "0deg",
+                    });
                   }
                 }}
               >
