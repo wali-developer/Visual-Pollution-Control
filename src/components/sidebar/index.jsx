@@ -20,10 +20,11 @@ const Sidebar = ({ open, onClose }) => {
         <HiX />
       </span>
 
-      <div className={`mx-[65px] mt-[50px] flex items-center`}>
-        <div className="mt-1 ml-1 w-[150px] font-poppins text-[16px] font-bold uppercase text-navy-700 dark:text-white">
+      <div className={`mx-[55px] mt-[50px] flex items-center`}>
+        {/* <div className="mt-1 ml-1 w-[150px] font-poppins text-[16px] font-bold uppercase text-navy-700 dark:text-white">
           Visual Pollution Control
-        </div>
+        </div> */}
+        <img src="/logo.png" alt="Logo" className="w-[180px]" />
       </div>
       <div class="mt-[58px] mb-7 h-px bg-gray-300 dark:bg-white/30" />
       {/* Nav item */}
