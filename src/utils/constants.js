@@ -1,0 +1,1 @@
+export const USER_TOKEN = 'User_login_data'
