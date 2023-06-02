@@ -5,8 +5,10 @@ import { toast } from "react-toastify";
 import Loader from "components/Loader";
 import API from "utils/API";
 import { USER_TOKEN } from "utils/constants";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,12 +22,15 @@ export default function SignIn() {
     try {
       setLoading(true);
       const { data } = await API.post("auth/signin", payload);
+      console.log(data);
+
       if (data?.msgErr) {
         toast.error(data?.msgErr);
       } else if (data?.token) {
         JSON.stringify(localStorage.setItem(USER_TOKEN, data));
         setEmail("");
         setPassword("");
+        navigate("/admin");
       }
 
       setLoading(false);
@@ -78,17 +83,17 @@ export default function SignIn() {
               Forgot Password?
             </a>
           </div>
-          <Link to="/admin">
-            <button
-              className="linear mt-2 w-full rounded-xl bg-brand-500 py-[12px] text-base font-medium text-white transition duration-200 hover:bg-brand-600 active:bg-brand-700 dark:bg-brand-400 dark:text-white dark:hover:bg-brand-300 dark:active:bg-brand-200"
-              // onClick={(e) => {
-              //   e.preventDefault();
-              //   handleLogin();
-              // }}
-            >
-              Sign In
-            </button>
-          </Link>
+
+          <button
+            className="linear mt-2 w-full rounded-xl bg-brand-500 py-[12px] text-base font-medium text-white transition duration-200 hover:bg-brand-600 active:bg-brand-700 dark:bg-brand-400 dark:text-white dark:hover:bg-brand-300 dark:active:bg-brand-200"
+            onClick={(e) => {
+              e.preventDefault();
+              handleLogin();
+            }}
+          >
+            Sign In
+          </button>
+
           {/* <div className="mt-4">
           <span className=" text-sm font-medium text-navy-700 dark:text-gray-600">
             Not registered yet?
