@@ -35,6 +35,9 @@ export default function SignIn() {
 
       setLoading(false);
     } catch (error) {
+      if (error.response.data.msgErr) {
+        toast.error(error.response.data.msgErr);
+      }
       console.log(error);
       setLoading(false);
     }

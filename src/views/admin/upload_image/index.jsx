@@ -48,7 +48,7 @@ const UploadImage = () => {
     <>
       <div className="mt-7 w-full">
         <form className="w-full" onSubmit={handleSubmit}>
-          <div className="w-full rounded-[20px] bg-white py-8">
+          <div className="w-full rounded-[20px] bg-white py-8 dark:bg-white/5">
             <div className="mx-auto max-w-[300px] text-center">
               <h1 className="text-xl font-semibold text-gray-500 3xl:text-2xl">
                 Upload your images
@@ -56,15 +56,10 @@ const UploadImage = () => {
               <p className="mt-3 mb-5 text-center text-[15px] text-gray-500">
                 Your images will be processed for analysis
               </p>
-              {/* {payload?.file ? (
-                <p className="mt-3 mb-5 text-center text-[15px] text-gray-500">
-                  {payload?.file?.name}
-                </p>
-              ) : null} */}
               <div className="relative mx-auto h-[40px] w-[140px]">
                 <input
                   type="file"
-                  className=""
+                  className="dark:text-white"
                   onChange={(e) =>
                     setPayload((prev) => {
                       return {
@@ -74,9 +69,6 @@ const UploadImage = () => {
                     })
                   }
                 />
-                {/* <div className=" h-full w-full rounded-lg bg-blueSecondary py-2 text-white">
-                  Upload
-                </div> */}
               </div>
             </div>
           </div>
@@ -124,7 +116,7 @@ const UploadImage = () => {
                 id="address"
                 placeholder="Enter address"
                 rows={4}
-                className={`mt-2 flex w-full resize-none items-center justify-center rounded-xl border bg-white p-3 py-3 text-sm outline-none`}
+                className={`mt-2 flex w-full resize-none items-center justify-center rounded-xl border bg-white p-3 py-3 text-sm outline-none dark:bg-white/5`}
                 value={payload?.address}
                 onChange={(e) =>
                   setPayload((prev) => {

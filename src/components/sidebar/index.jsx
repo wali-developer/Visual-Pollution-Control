@@ -5,6 +5,7 @@ import Links from "./components/Links";
 
 import SidebarCard from "./components/SidebarCard";
 import routes from "../../routes.js";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ open, onClose }) => {
   return (
@@ -24,7 +25,13 @@ const Sidebar = ({ open, onClose }) => {
         {/* <div className="mt-1 ml-1 w-[150px] font-poppins text-[16px] font-bold uppercase text-navy-700 dark:text-white">
           Visual Pollution Control
         </div> */}
-        <img src="/logo.png" alt="Logo" className="w-[180px]" />
+        <Link to="/admin">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="w-[180px] cursor-pointer"
+          />
+        </Link>
       </div>
       <div class="mt-[58px] mb-7 h-px bg-gray-300 dark:bg-white/30" />
       {/* Nav item */}

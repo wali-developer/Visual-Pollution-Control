@@ -1,8 +1,7 @@
-import axios from "axios"
+import axios from "axios";
 
 const API = axios.create({
-    baseURL: 'https://pollution-monitoring.herokuapp.com/'
-})
-
+  baseURL: "https://schoolcms.wsdevelopers.com/",
+});
 
 export default API;

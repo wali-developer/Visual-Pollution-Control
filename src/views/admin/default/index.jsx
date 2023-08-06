@@ -10,7 +10,9 @@ const Dashboard = () => {
   return (
     <div className="mt-7">
       {/* Card widget */}
-      <h3 className="text-xl font-bold text-navy-700">Overview</h3>
+      <h3 className="text-xl font-bold text-navy-700 dark:text-white">
+        Overview
+      </h3>
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6">
         <OverviewWidget
           title={"Processing"}

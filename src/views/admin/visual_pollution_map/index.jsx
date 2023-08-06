@@ -85,7 +85,6 @@ const VisualPollutionMap = () => {
                           active?.info?._id == item.info?._id
                             ? rotationValues.yaw
                             : "0deg",
-                        // transform: active?.properties.place_ID==item.properties.place_ID? rotationValues.pitch:'0deg'
                       }}
                       onClick={() => {
                         setRotaionValues({
@@ -148,7 +147,7 @@ const VisualPollutionMap = () => {
               </div>
             ) : (
               <h1 className="flex h-full w-full items-center justify-center text-lg">
-                Click on the highlighted location so see the area image
+                Click on the highlighted location to see the area image
               </h1>
             )}
           </div>
